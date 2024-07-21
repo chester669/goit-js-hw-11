@@ -1,3 +1,10 @@
+#loading {
+  text-align: center;
+  font-size: 1.5em;
+  color: #333;
+  margin: 20px 0;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -5,11 +12,11 @@
 }
 
 .gallery a {
-  width: 200px;
+  width: calc(33.333% - 10px);
+  display: block;
 }
 
-.loading {
-  display: none;
-  text-align: center;
-  margin-top: 20px;
+.gallery img {
+  width: 100%;
+  display: block;
 }

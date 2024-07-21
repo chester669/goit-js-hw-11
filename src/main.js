@@ -6,7 +6,6 @@ import {
   showNoResultsMessage,
   showError,
 } from './js/render-function.js';
-
 document
   .getElementById('search-form')
   .addEventListener('submit', async function (event) {
@@ -22,11 +21,10 @@ document
 
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = '';
-    showLoading();
 
     try {
+      showLoading();
       const data = await fetchImages(searchInput);
-      hideLoading();
 
       if (data.hits.length === 0) {
         showNoResultsMessage();
@@ -34,8 +32,9 @@ document
         renderImages(data.hits);
       }
     } catch (error) {
-      hideLoading();
       showError('Something went wrong. Please try again later.');
       console.error('Error fetching images:', error);
+    } finally {
+      hideLoading();
     }
   });
